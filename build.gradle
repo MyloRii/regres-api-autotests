@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id "io.franzbecker.gradle-lombok" version "3.2.0"
+}
+
+ext {
+    restAssuredVersion = '3.0.0'
+    jacksonVersion = '2.9.5'
+    logBackVersion = '1.2.3'
+    slf4jVersion = '1.7.30'
+    assertJVersion = '3.14.0'
+    fakerVersion = '1.0.1'
+    ownerVersion = '1.0.6'
+    springVersion = '5.2.3.RELEASE'
+    cucumberVersion = '5.1.3'
+    cucumberReportingVersion = '4.0.18'
+}
+
+group 'com.gorest'
+version '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation "io.rest-assured:rest-assured:$restAssuredVersion"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    implementation "ch.qos.logback:logback-classic:$logBackVersion"
+    implementation "ch.qos.logback:logback-core:$logBackVersion"
+    implementation "org.slf4j:slf4j-api:$slf4jVersion"
+    implementation "org.assertj:assertj-core:$assertJVersion"
+    implementation "com.github.javafaker:javafaker:$fakerVersion"
+    implementation "org.aeonbits.owner:owner-java8:$ownerVersion"
+
+    testImplementation "de.monochromata.cucumber:reporting-plugin:$cucumberReportingVersion"
+    testImplementation "io.cucumber:cucumber-java:$cucumberVersion"
+    testImplementation "io.cucumber:cucumber-junit:$cucumberVersion"
+
+    implementation "io.cucumber:cucumber-spring:$cucumberVersion"
+    implementation "org.springframework:spring-test:$springVersion"
+    implementation "org.springframework:spring-context:$springVersion"
+
+    //Because Java11
+    implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+    implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+}
