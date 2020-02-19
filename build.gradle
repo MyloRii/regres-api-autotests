@@ -16,7 +16,7 @@ ext {
     cucumberReportingVersion = '4.0.18'
 }
 
-group 'com.gorest'
+group 'com.regres'
 version '1.0-SNAPSHOT'
 
 repositories {
