@@ -25,12 +25,11 @@ public class ResourcesSteps {
         response = resourcesService.getResources();
     }
 
-    //TODO: fix
     @Then("Values in the list are:")
-    public void values_in_the_list_are(List<DataItem> listOfMaps) {
+    public void values_in_the_list_are(List<DataItem> dataItems) {
         response.then().statusCode(SC_OK);
         ResourcesResponse resourcesResponse = response.as(ResourcesResponse.class);
         List<DataItem> responseList = resourcesResponse.getData();
-        assertThat(responseList).isEqualTo(listOfMaps);
+        assertThat(responseList).isEqualTo(dataItems);
     }
 }
